@@ -20,7 +20,6 @@ class _D(object):
     def __iter__(self):
         return iter(self._items)
 
-
     def __eq__(self, other):
         if len(self) != len(other):
             return False
@@ -73,22 +72,20 @@ class _D(object):
         return _D(sorted(self._items, cmp, key, reverse))
 
     def reverse(self):
-        return self.sorted(key=lambda pair: pair[0], reverse=True)
+        return self.sort(key=lambda pair: pair[0], reverse=True)
 
     def key_sort(self, reverse=False):
-        return self.sorted(key=lambda pair: pair[0], reverse=reverse)
+        return self.sort(key=lambda pair: pair[0], reverse=reverse)
 
     def value_sort(self, reverse=False):
-        return self.sorted(key=lambda pair: pair[1], reverse=reverse)
-
+        return self.sort(key=lambda pair: pair[1], reverse=reverse)
 
 
     def map(self, fxn):
         return _D(map(fxn, self._items))
 
     def filter(self, fxn):
-        return _D(map(filter(fxn, self._items)))
+        return _D(filter(fxn, self._items)))
 
     def reduce(self, fxn, initial):
-        return _D(map(reduce(fxn, items, initial)))
-
+        return _D(reduce(fxn, items, initial)))
