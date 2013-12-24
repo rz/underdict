@@ -1,3 +1,3 @@
-from underdict import _D
+from underdict import D
 
-__all__ = ['_D']
+__all__ = ['D']
