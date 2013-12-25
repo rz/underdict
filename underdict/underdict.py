@@ -128,3 +128,9 @@ class D(object):
         for k, v in self._items:
             val = fxn(val, k, v)
         return val
+
+    def reduce_keys(self, fxn, initial):
+        return reduce(fxn, self.keys(), initial)
+
+    def reduce_values(self, fxn, initial):
+        return reduce(fxn, self.values(), initial)
