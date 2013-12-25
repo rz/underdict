@@ -1,6 +1,9 @@
 class D(object):
     def __init__(self, items):
-        self._items = items
+        if isinstance(items, dict):
+            self._items = [(k, v) for k, v in items.items()]
+        else:
+            self._items = items
 
     def __str__(self):
         return 'D{' + ', '.join('%s:%s' % i for i in self._items) + '}'
